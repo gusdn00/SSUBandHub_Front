@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './TeamList.css';
+import '../styles/TeamList.css';
 
 function TeamList(){
     return(
