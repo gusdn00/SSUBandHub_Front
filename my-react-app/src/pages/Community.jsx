@@ -4,7 +4,7 @@ import "../styles/Community.css" ;
 function Community(){
     return(
         <>
-            hello
+            Community
         </>
     );
 }

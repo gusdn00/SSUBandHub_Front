@@ -4,7 +4,7 @@ import "../styles/Syncroom.css" ;
 function Syncroom(){
     return(
         <>
-            hello
+            Syncroom
         </>
     );
 }

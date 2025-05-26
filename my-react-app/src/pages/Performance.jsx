@@ -4,7 +4,7 @@ import "../styles/Performance.css" ;
 function Performance(){
     return(
         <>
-            hello
+            Performance
         </>
     );
 }

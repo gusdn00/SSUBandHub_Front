@@ -1,0 +1,18 @@
+.SearchBar{
+    height: 50px;
+}
+
+.search-bar{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.search-input{
+    width: 400px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    
+}
