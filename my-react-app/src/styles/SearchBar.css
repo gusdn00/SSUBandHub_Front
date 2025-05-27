@@ -1,18 +1,83 @@
-.SearchBar{
+.SearchBar {
     height: 50px;
 }
 
-.search-bar{
-    padding: 10px;
+.search-bar {
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    gap: 4%;
+    background-color: #fff; /* 깔끔한 흰 배경 */
 }
 
-.search-input{
-    width: 400px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 500;
-    
+.search {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+.search-input {
+    width: 420px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 1.8px solid #999; /* 약간 더 진한 테두리 */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #222;
+}
+
+.search-input::placeholder {
+    color: #bbb;
+    font-weight: 400;
+}
+
+.search-input:focus {
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(100, 100, 100, 0.3);
+}
+
+.search-button {
+    width: 38px;
+    height: 38px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.25s ease;
+}
+
+.search-button:hover {
+    background-color: #efefef;
+}
+
+/* 돋보기 아이콘 위치 조정용 */
+.search-button svg {
+    width: 18px;
+    height: 18px;
+    fill: #555;
+}
+
+.create-button {
+    width: 120px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #222;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.create-button:hover {
+    background-color: #e1e1e1;
+    border-color: #bbb;
 }
