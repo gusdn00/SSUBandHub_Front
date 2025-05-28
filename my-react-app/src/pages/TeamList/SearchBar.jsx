@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/SearchBar.css'
+import '../../styles/TeamList/SearchBar.css'
 function SearchBar({ query, setQuery}){
     return (
         <div className="search-bar">

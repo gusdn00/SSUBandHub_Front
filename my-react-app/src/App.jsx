@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/team-list" element={<TeamList/>} />
           <Route path="/syncroom" element={<Syncroom/>} />
-          <Route path="/performance" element={<TeamList/>} />
+          <Route path="/performance" element={<Performance/>} />
           <Route path="/community" element={<Community/>} />
           <Route path="/Community/Write" element={<CommunityWrite/>} />
           <Route path="/community/:id" element={<CommunityDetail />} />

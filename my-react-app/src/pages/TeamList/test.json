@@ -18,5 +18,45 @@
     "views": 724,
     "scraps": 5,
     "imageUrl": "/images/실리카겔.jpg"
+  },
+  {
+    "id": 3,
+    "title": "쏜애플 좋아하시는 분 여기로 오세요!",
+    "content": "취미로 같이 합주하실 분들을 모집하고 있습니다.",
+    "bandName": "쏜애플망고",
+    "date": "2025.04.16",
+    "views": 2564,
+    "scraps": 9,
+    "imageUrl": "/images/쏜애플.jpg"
+  },
+  {
+    "id": 4,
+    "title": "실리카겔 좋아하시는 분 여기로 오세요!",
+    "content": "실리카겔 밴드 곡들을 합주하고자 합니다.",
+    "bandName": "실리카겔팬",
+    "date": "2025.04.16",
+    "views": 724,
+    "scraps": 5,
+    "imageUrl": "/images/실리카겔.jpg"
+  },
+  {
+    "id": 5,
+    "title": "쏜애플 좋아하시는 분 여기로 오세요!",
+    "content": "취미로 같이 합주하실 분들을 모집하고 있습니다.",
+    "bandName": "쏜애플망고",
+    "date": "2025.04.16",
+    "views": 2564,
+    "scraps": 9,
+    "imageUrl": "/images/쏜애플.jpg"
+  },
+  {
+    "id": 6,
+    "title": "실리카겔 좋아하시는 분 여기로 오세요!",
+    "content": "실리카겔 밴드 곡들을 합주하고자 합니다.",
+    "bandName": "실리카겔팬",
+    "date": "2025.04.16",
+    "views": 724,
+    "scraps": 5,
+    "imageUrl": "/images/실리카겔.jpg"
   }
 ]

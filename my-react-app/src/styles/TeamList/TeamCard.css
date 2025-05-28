@@ -1,0 +1,28 @@
+.team-card{
+    background-color: #F1F4FF;
+    width: 1050px;
+    height: 150px;
+    border-radius: 20px;
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: center
+}
+
+.team-text{
+    width: 90%;
+}
+
+.team-image {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}

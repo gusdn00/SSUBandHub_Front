@@ -1,5 +1,6 @@
 import React from "react";
 import TeamCard from "./TeamCard.jsx";
+import '../../styles/TeamList/ListSection.css';
 
 function ListSection({teams}){
     return(

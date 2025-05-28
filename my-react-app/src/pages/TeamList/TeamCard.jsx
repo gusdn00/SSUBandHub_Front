@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/TeamList/TeamCard.css';
 
 function TeamCard({ team }){
     return (
@@ -11,7 +12,7 @@ function TeamCard({ team }){
                 </div>
             </div>
             <div className="team-image">
-                <img src={team.imageUrl} alt="team" />
+                <img src='src\assets\testimg.jpeg' alt="team" />
             </div>
         </div>
     );
