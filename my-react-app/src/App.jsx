@@ -8,7 +8,9 @@ import Community from './pages/Community/Community';
 import CommunityWrite from './pages/Community/CommunityWrite';
 import CommunityDetail from './pages/Community/CommunityDetail';
 import Performance from './pages/performance'
-
+import ApplyPage from './pages/TeamList/ApplyPage';
+import CreateTeam from './pages/TeamList/CreateTeam';
+import TeamMake from './pages/TeamList/TeamMake';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/community" element={<Community/>} />
           <Route path="/Community/Write" element={<CommunityWrite/>} />
           <Route path="/community/:id" element={<CommunityDetail />} />
+          <Route path="/team-list/Tid/:id" element={<ApplyPage />} />
+          <Route path="/team-list/create" element={<TeamMake />} />
         </Routes>
     </Router>
     </>
