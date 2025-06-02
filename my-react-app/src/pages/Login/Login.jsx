@@ -13,7 +13,7 @@ function Login() {
     console.log("로그인 시도:", email, password);
 
     // 로그인 성공 시 홈으로 이동
-    navigate("/home");
+    navigate("/team-list");
   };
 
   return (
