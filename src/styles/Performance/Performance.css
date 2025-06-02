@@ -1,0 +1,33 @@
+/* Performance.css */
+.performance-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.performance-week-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.performance-week-item {
+  margin: 10px 0;
+}
+
+.performance-week-item a {
+  display: block;
+  padding: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.performance-week-item a:hover {
+  background-color: #f0f8ff;
+  border-color: #3498db;
+}

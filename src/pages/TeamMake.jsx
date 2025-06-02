@@ -19,10 +19,14 @@ function TeamMake() {
   const [selectedSessions, setSelectedSessions] = useState({});
 
   const [genres, setGenres] = useState([
-    { id: 1, name: 'J-POP' },
+    { id: 1, name: '국내 락' },
     { id: 2, name: '국내 인디' },
-    { id: 3, name: '록' },
-    { id: 4, name: '기타' }
+    { id: 3, name: '해외 락' },
+    { id: 4, name: '해외 인디' },
+    { id: 5, name: 'J-POP' },
+    { id: 6, name: 'R&B' },
+    { id: 7, name: '재즈' },
+    { id: 8, name: '기타' }
   ]);
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -71,8 +75,11 @@ function TeamMake() {
     );
   };
 
+  const loggedInUser = JSON.parse(localStorage.getItem('user')); // 로그인 시 저장한 유저 정보
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const payload = {
       ...form,
       region: parseInt(form.region), // 문자열 → 숫자 변환
@@ -80,7 +87,9 @@ function TeamMake() {
         session_id: parseInt(session_id),
         required
       })),
-      genres: selectedGenres
+      genres: selectedGenres,
+      creator_id: loggedInUser.uuid // ✅ 로그인 사용자 UUID (예시)
+
     };
 
     const res = await fetch('http://localhost:3000/team/full', {

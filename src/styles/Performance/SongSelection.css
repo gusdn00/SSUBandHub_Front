@@ -1,0 +1,133 @@
+.song-selection-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 500px;
+  margin: 40px auto;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.song-card {
+  background-color: #f9faff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.input-card h2,
+.list-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.input-group input[type="text"] {
+  flex: 1;
+  padding: 8px 2px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+}
+
+.input-group input[type="text"]:disabled {
+  background-color: #eee;
+}
+
+.input-group button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 10 16px;
+  border-radius: 8px;
+  font-size: 1rem;     /* ↓ 글자 작게 해서 한 줄로 */
+  font-weight: 600;
+  white-space: nowrap; /* 글자가 줄바꿈되지 않도록 */
+  min-width: auto;     /* 불필요한 최소 너비 제거 */
+  height: 40px;        /* input과 높이 맞춤 */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.input-group button:hover {
+  background-color: #1c5980;
+}
+
+.limit-text {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+}
+
+.song-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem;
+  color: #34495e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #04131e;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:disabled {
+  background-color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+.submit-button:not(:disabled):hover {
+  background-color: #2980b9;
+}
+
+
+.performance-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 20px 0 10px 10px; /* 위쪽 여유, 왼쪽 정렬 */
+  text-align: left;
+}

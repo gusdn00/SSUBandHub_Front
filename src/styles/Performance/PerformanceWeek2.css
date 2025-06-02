@@ -1,0 +1,80 @@
+.performance-week2-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.performance-week2-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: left;
+}
+
+.performance-week2-image {
+  width: 80%;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.performance-week2-list {
+  list-style: none;
+  padding: 0;
+}
+
+.performance-week2-item {
+  margin: 12px 0;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.first-button,
+.secondary-button {
+  width: 140px;
+  height: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.first-button {
+  background-color: #04131e;
+}
+
+.first-button:hover {
+  background-color: #2980b9;
+}
+
+.secondary-button {
+  background-color: #7f8c8d;
+}
+
+.secondary-button:hover {
+  background-color: #616a6b;
+}
+
+.first-button.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

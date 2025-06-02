@@ -13,7 +13,7 @@ function Header(){
     return(
         <div className="header">
             <div className="upside">
-                <a className="logo" href="/">
+                <a className="logo" href="/team-list">
                     <img src="src\assets\logo.png" alt="SSUBandHub" />
                 </a>
                 <div className="auth">
