@@ -1,20 +1,33 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3000/login", {
+        ID: email,
+        password: password,
+      },{
+        withCredentials: true 
+      });
 
-    // TODO: 여기에 나중에 fetch()로 백엔드 연동 예정
-    console.log("로그인 시도:", email, password);
+      console.log("로그인 성공:", response.token);
+      const token = response.data.token;
 
-    // 로그인 성공 시 홈으로 이동
+      localStorage.setItem("token", token);
+    } catch (error) {
+      console.error("로그인 실패:", error);
+    }
     navigate("/team-list");
   };
+
 
   return (
     <div style={{ maxWidth: "400px", margin: "50px auto" }}>

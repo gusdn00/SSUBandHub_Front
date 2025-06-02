@@ -1,5 +1,6 @@
 // src/pages/Register.jsx
 import { useState } from "react";
+import axios from 'axios';
 
 function Register() {
   const [form, setForm] = useState({
@@ -11,11 +12,6 @@ function Register() {
     birth: "",
     phone: "",
     email: "",
-    terms: {
-      use: false,
-      policy: false,
-      privacy: false
-    }
   });
 
   const handleChange = (e) => {
@@ -33,8 +29,25 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("가입정보:", form);
-    alert("회원가입 정보가 콘솔에 출력되었습니다.");
+    try {
+    const response = axios.post("http://localhost:3000/signup", {
+      id: form.id,
+      password: form.password,
+      confirm_password: form.passwordConfirm,
+      name: form.name,
+      gender: form.gender,
+      birth: form.birth,
+      phone: form.phone,
+      email: form.email,
+      terms: form.terms
+    });
+
+    console.log("서버 응답:", response.data);
+    alert("회원가입 성공!");
+  } catch (error) {
+    console.error("회원가입 실패:", error.response?.data || error.message);
+    alert("회원가입 중 오류가 발생했습니다.");
+  }
   };
 
   return (
