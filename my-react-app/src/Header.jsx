@@ -23,7 +23,13 @@ function Header(){
                         </>
                     ):(
                         <>
-                            <button onClick={toggleLogin}>로그인</button> | <a href="#"> 회원가입</a>
+                            <Link to="/login">
+                                <button >로그인</button>
+                            </Link>
+                             | 
+                             <Link to="/signup">
+                                <button>회원가입</button>
+                            </Link>
                         </>
                     )}
                 </div>

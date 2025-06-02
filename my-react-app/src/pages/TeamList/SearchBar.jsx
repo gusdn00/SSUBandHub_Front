@@ -17,7 +17,6 @@ function SearchBar({ query, setQuery}){
                 placeholder="검색어를 입력하세요"
                 className="search-input"
                 />
-                <button className="search-button">🔍</button>
             </div>
             <button className="create-button" onClick={handleClick}>+ 팀 생성</button>
         </div>

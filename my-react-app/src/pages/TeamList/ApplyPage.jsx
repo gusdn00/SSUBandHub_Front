@@ -1,5 +1,5 @@
-import { useParams, useNavigate } from 'react-router-dom';
-
+import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 function ApplyPage(){
     const { id } = useParams();
     const navigate = useNavigate();

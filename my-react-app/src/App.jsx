@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import Header from './Header'
 import TeamList from './pages/TeamList/TeamList'
-import Syncroom from './pages/Syncroom';
+import Syncroom from './styles/Syncroom/Syncroom';
 import Community from './pages/Community/Community';
 import CommunityWrite from './pages/Community/CommunityWrite';
 import CommunityDetail from './pages/Community/CommunityDetail';
@@ -11,6 +11,8 @@ import Performance from './pages/performance'
 import ApplyPage from './pages/TeamList/ApplyPage';
 import CreateTeam from './pages/TeamList/CreateTeam';
 import TeamMake from './pages/TeamList/TeamMake';
+import Login from './pages/Login/Login';
+import Register from './pages/Login/SignUp';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/community/:id" element={<CommunityDetail />} />
           <Route path="/team-list/Tid/:id" element={<ApplyPage />} />
           <Route path="/team-list/create" element={<TeamMake />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
         </Routes>
     </Router>
     </>
