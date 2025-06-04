@@ -86,7 +86,8 @@ function TeamMake() {
     const res = await fetch('http://localhost:3000/team/full', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      credentials: 'include',
     });
 
     const result = await res.json();
