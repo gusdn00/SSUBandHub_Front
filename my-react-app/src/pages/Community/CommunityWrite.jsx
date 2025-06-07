@@ -9,12 +9,31 @@ function Write() {
   const [fontSize, setFontSize] = useState(16); // 기본 폰트 크기
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    // 실제 게시 로직으로 교체
-    console.log('제목:', title);
-    console.log('본문:', content);
-    alert('게시되었습니다.');
-    navigate('/community');
+  const handleSubmit = async () => {
+    if (!title.trim() || !content.trim()) {
+      alert('제목과 내용을 모두 입력해주세요');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ title, content })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        alert('게시되었습니다!');
+        navigate('/community');
+      } else {
+        alert(`게시 실패: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('게시 중 오류:', error);
+      alert('오류가 발생했습니다.');
+    }
   };
 
   const handleCancel = () => {

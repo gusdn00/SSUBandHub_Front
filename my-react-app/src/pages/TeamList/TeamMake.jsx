@@ -19,10 +19,14 @@ function TeamMake() {
   const [selectedSessions, setSelectedSessions] = useState({});
 
   const [genres, setGenres] = useState([
-    { id: 1, name: 'J-POP' },
+    { id: 1, name: '국내 락' },
     { id: 2, name: '국내 인디' },
-    { id: 3, name: '록' },
-    { id: 4, name: '기타' }
+    { id: 3, name: '해외 락' },
+    { id: 4, name: '해외 인디' },
+    { id: 5, name: 'J-POP' },
+    { id: 6, name: 'R&B' },
+    { id: 7, name: '재즈' },
+    { id: 8, name: '기타' }
   ]);
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -86,7 +90,8 @@ function TeamMake() {
     const res = await fetch('http://localhost:3000/team/full', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      credentials: 'include',
     });
 
     const result = await res.json();

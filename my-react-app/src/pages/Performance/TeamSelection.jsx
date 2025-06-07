@@ -1,29 +1,33 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import '../../styles/Performance/TeamSelection.css';
 
-const teams = [
-  { id: 'teamA', name: '팀 A', members: 3 },
-  { id: 'teamB', name: '팀 B', members: 2 },
-  { id: 'teamC', name: '팀 C', members: 4 },
-  { id: 'teamD', name: '팀 D', members: 1 },
-  // 필요에 따라 더 추가 가능
-];
-
 function TeamSelection() {
+  const [teams, setTeams] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState(null);
   const navigate = useNavigate();
+  const { id } = useParams();  // 공연 ID
 
-  const handleSelect = (teamId) => {
-    setSelectedTeam(teamId);
-  };
+  useEffect(() => {
+    fetch(`http://localhost:3000/performance/${id}/team-select`, {
+      credentials: 'include', // 쿠키 포함
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('팀 정보를 불러오지 못했습니다.');
+        return res.json();
+      })
+      .then(data => setTeams(data))
+      .catch(err => alert(err.message));
+  }, [id]);
+
+  const handleSelect = (teamId) => setSelectedTeam(teamId);
 
   const handleSubmit = () => {
     if (!selectedTeam) {
       alert('팀을 선택해주세요.');
       return;
     }
-    navigate(`/performance/song-select?team=${selectedTeam}`);
+    navigate(`/performance/song-select?team=${selectedTeam}&performance=${id}`);
   };
 
   return (
@@ -37,11 +41,9 @@ function TeamSelection() {
             onClick={() => handleSelect(team.id)}
           >
             <span className="team-name">{team.name}</span>
-            <span className="team-members">({team.members}명)</span>
           </li>
         ))}
       </ul>
-
       <button className="primary-button" onClick={handleSubmit}>
         지원하기
       </button>
