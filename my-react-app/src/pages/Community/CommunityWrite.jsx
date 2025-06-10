@@ -10,6 +10,9 @@ function Write() {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+
+    const token = localStorage.getItem('token');
+
     if (!title.trim() || !content.trim()) {
       alert('제목과 내용을 모두 입력해주세요');
       return;
@@ -18,7 +21,10 @@ function Write() {
     try {
       const response = await fetch('http://localhost:3000/api/posts', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+         headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`  // ✅ 꼭 필요!
+  },
         credentials: 'include',
         body: JSON.stringify({ title, content })
       });

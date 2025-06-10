@@ -12,25 +12,43 @@ function CommunityDetail() {
   const [editCommentContent, setEditCommentContent] = useState('');
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const [currentUser, setCurrentUser] = useState(null);  // 로그인 사용자 정보
 
   useEffect(() => {
+      const token = localStorage.getItem('token'); // ✅ 선언 추가
+
     fetch(`http://localhost:3000/api/posts/${id}`, {
+      headers: {
+      Authorization: `Bearer ${token}` // ✅ 로그인 정보 포함
+    },
       credentials: 'include'
     })
-      .then(res => {res.json(), console.log("서버 응답 : ", res)})
+      .then(res => {
+      console.log("서버 응답 : ", res);
+      return res.json();  // 🔥 이 줄이 필수!
+    })
       .then(data => {
         if (data.success) {
           setPost(data.post);
           setComments(data.comments);
           setLikeCount(data.post.likeCount || 0);
           setLiked(data.userLiked || false);
+          setCurrentUser(data.user); // ✅ 사용자 정보 저장
+          
+          //디버깅
+          console.log('현재 사용자 ID:', data.user?.id);
+        console.log('작성자:', data.post?.writer);
         }
       });
   }, [id]);
 
   const likePost = async () => {
+      const token = localStorage.getItem('token');
     const res = await fetch(`/api/posts/${post.id}/like`, {
       method: 'POST',
+      headers: {
+      Authorization: `Bearer ${token}`
+    },
       credentials: 'include'
     });
     const data = await res.json();
@@ -42,9 +60,15 @@ function CommunityDetail() {
 
   const handleDelete = async () => {
     if (window.confirm('정말 삭제하시겠습니까?')) {
+      
+      const token = localStorage.getItem('token');  // ✅ 토큰 추가
+
       await fetch(`/api/posts/${post.id}`, {
         method: 'DELETE',
-        credentials: 'include'
+        credentials: 'include',
+        headers: {
+        Authorization: `Bearer ${token}` // ✅ 헤더 추가
+      }
       });
       navigate('/community');
     }
@@ -69,8 +93,13 @@ function CommunityDetail() {
   const handleCommentDelete = async (commentId) => {
     if (!window.confirm('댓글을 삭제하시겠습니까?')) return;
     const res = await fetch(`/api/comments/${commentId}`, {
+      
+      
       method: 'DELETE',
-      credentials: 'include'
+      credentials: 'include',
+        headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
     });
     const data = await res.json();
     if (data.success) {
@@ -88,7 +117,10 @@ function CommunityDetail() {
     const res = await fetch(`/api/comments/${editCommentId}`, {
       method: 'PUT',
       credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  },
       body: JSON.stringify({ content: editCommentContent })
     });
     const data = await res.json();
@@ -112,13 +144,15 @@ function CommunityDetail() {
       <div className="detail-author">작성자: {post.writer}</div>
 
       <button onClick={likePost}>
-        {liked ? '💔 좋아요 취소' : '❤️ 좋아요'} ({likeCount})
+        {'❤️ 좋아요'} ({likeCount})
       </button>
 
-      <div className="button-group">
-        <button onClick={() => navigate(`/community/edit/${post.id}`)}>수정</button>
-        <button onClick={handleDelete}>삭제</button>
-      </div>
+      {currentUser?.id?.toString() === post.writer?.toString() && (
+        <div className="button-group">
+          <button onClick={() => navigate(`/community/edit/${post.id}`)}>수정</button>
+          <button onClick={handleDelete}>삭제</button>
+        </div>
+      )}
 
       <hr />
       <h3>댓글</h3>

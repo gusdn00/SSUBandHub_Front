@@ -10,7 +10,14 @@ function CommunityEdit() {
   const [content, setContent] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/posts/${id}/edit`, { credentials: 'include' })
+    const token = localStorage.getItem('token');
+fetch(`http://localhost:3000/api/posts/${id}/edit`, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${token}`
+  },
+  credentials: 'include'
+})
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -24,9 +31,15 @@ function CommunityEdit() {
   }, [id]);
 
   const handleUpdate = () => {
+    const token = localStorage.getItem('token'); // 🔹 이 줄 추가
+
+    
     fetch(`http://localhost:3000/api/posts/${id}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`
+  },
       credentials: 'include',
       body: JSON.stringify({ title, content })
     })
